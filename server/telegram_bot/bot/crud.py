@@ -30,7 +30,7 @@ def find_examination_expert(lat: float, lng: float, searchFor: Clients) -> Clien
     shoosenAdmin = None
 
     for admin in admins:
-        meeting: Meetings = session.query(Meetings).filter_by(id=admin.id, date=today).order_by(sa.desc(Meetings.date)).first()
+        meeting: Meetings = session.query(Meetings).filter_by(expert_id=admin.id).order_by(sa.desc(Meetings.date)).first()
 
         if meeting is None:
             shoosenAdmin = admin
