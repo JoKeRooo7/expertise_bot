@@ -6,17 +6,17 @@
 
 ## Структура проекта
 
-├── db_data
-├── db_init
-│ ├── creating_base.sql
-├── server
-│ ├── telegram_bot
-│ │ ├── bot
-│ │ └── run.py
-│ ├── Dockerfile
-├── docker-compose.yml
-├── README.md
-└── run.sh
+├── db_data  
+├── db_init  
+│ ├── creating_base.sql  
+├── server  
+│ ├── telegram_bot  
+│ │ ├── bot  
+│ │ └── run.py  
+│ ├── Dockerfile  
+├── docker-compose.yml  
+├── README.md  
+└── run.sh  
 
 `db_data` - папка, в которой хранится база данных, они монтируется в контейнер докера, чтобы при удалении последнего данные не терялись;  
 `db_init` - в этой папке находится скрипт инициализации базы данных при первом развёртывании бота (`creating_base.sql`);  
