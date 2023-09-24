@@ -38,6 +38,11 @@ async def on_callback_examinationCalendar(query: types.CallbackQuery, state: FSM
     data = calendar.CalendarCallbackData.unpack(query.data)
     (isPicked, pickedDate) = await calendar.process_selection(query=query, data=data, cancelBtnData=strings.cb_cancel_examination_creation)
     if isPicked:
+        today = datetime.datetime.today()
+        if pickedDate < today:
+            await query.answer(text=strings.error_date, show_alert=True)
+            return
+
         await state.update_data(pickedDate=pickedDate)
         await state.set_state(ExaminationStates.pickHour)
         await edit_to_pickHour(query.message)
